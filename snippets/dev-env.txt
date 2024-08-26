@@ -1,0 +1,50 @@
+pip install virtualenv
+
+pip list  #see ton of global packages...
+
+virtualenv django_project
+
+source django_project/bin/activate
+
+(django_project)  #now inside virtual environment...
+
+which python  #locate location of python
+
+which pip        #locate location of pip
+
+pip list
+
+pip install numpy
+pip install pytz
+pip install psutil
+
+pip list
+
+
+pip freeze --local > requirements.txt
+
+cat requirements.txt
+
+deactivate
+
+which python
+
+pip list
+
+rm -rf django_project/
+
+ls
+
+virtualenv -p /usr/bin/python2.6 py26_env
+
+ls
+
+source py26_env/bin/activate   #see new in brackets
+
+which python  #now python 2.6.9
+
+pip install -r requirements.txt  #goes out and grabs pkgs!
+
+pip list   #see pkgs installed!
+
+ls  #don't put project files inside virtual env (recommendation)
