@@ -1,3 +1,7 @@
+=============
+Create Post
+=============
+
 ❯ python manage.py shell
 Python 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -97,5 +101,38 @@ datetime.datetime(2024, 8, 25, 15, 43, 23, 128933, tzinfo=datetime.timezone.utc)
 
 >>> user.post_set.all()
 <QuerySet [<Post: Post1>, <Post: Post2>, <Post: Post3>, <Post: Post4>]>
+
+>>>exit() 
+
+=============
+Pagination
+=============
+
+❯ python manage.py shell
+Python 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> import json
+>>> from blog.models import Post
+>>> from django.contrib.auth.models import User
+>>> with open('posts.json') as f:
+...   posts_json = json.load(f)
+... 
+>>> for post in posts_json:
+...   post = Post(title=post['title'], content=post['content'], author_id=post['user_id'])
+...   post.save()
+... 
+>>> User.objects.all()
+<QuerySet [<User: julioaranajr>, <User: nizar>, <User: guest>, <User: dci>, <User: testing>]>
+>>> Post.objects.all()
+<QuerySet [<Post: Using Python Shell>, <Post: New post from the shell>, <Post: More python shell>, 
+<Post: user.post_set.create>, <Post: Create, Update, and Delete Posts>, <Post: Update Models, URLS and Views>, 
+<Post: Python Basics>, <Post: Object-Oriented Programming in Python>, <Post: Python Classes and Objects>, 
+<Post: Inheritance in Python>, <Post: Polymorphism in Python>, <Post: Encapsulation in Python>, 
+<Post: Python Constructors and Destructors>, <Post: Python Class Attributes and Methods>, 
+<Post: Python Method Overriding>, <Post: Python Method Overloading>, 
+<Post: Python Abstract Classes and Interfaces>, <Post: Python Multiple Inheritance>, 
+<Post: Python Composition vs Inheritance>, <Post: Python Method Chaining>, 
+'...(remaining elements truncated)...']>
 
 >>>exit() 
