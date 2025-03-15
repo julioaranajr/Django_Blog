@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Logout Complete{% endblock %}
+
+{% block content %}
+
+<div class="content-section">
+    <h1>Logout Complete</h1>
+    <br />
+    <div class="alert alert-success" role="alert">
+        <strong>Success!</strong> You have been successfully logged out. We hope to see you again soon.
+    </div>
+    <br />
+    <p>Thanks for spending some quality time with the web site today."</p>
+    <p><a href="{% url 'homepage' %}">Log in again</a></p>
+</div>
+
+{% endblock %}

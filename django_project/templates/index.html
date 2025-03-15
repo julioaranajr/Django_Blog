@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+<div class="content-section">
+  <h2>Welcome to Django Blog</h2>
+  {% if user.is_authenticated %}
+  <p>Hi, {{user.username}} ;)</p>
+  {% else %}
+  <p>You are not logged in, please log in to access the blog.</p>
+  <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-sm">Login</a>
+  {% endif %} <br />
+  <br />
+  <div class="content-section">
+  <h3>Features</h3>
+  <ul>
+    <li>View all blog posts</li>
+    <li>View individual blog post</li>
+    <li>Register an account</li>
+    <li>Login to your account</li>
+    <li>Create a new blog post</li>
+    <li>Update your profile</li>
+    <li>Change your password</li>
+    <li>Reset your password</li>
+    <li>Logout</li>
+  </ul>
+  </div>
+  <br>
+  <div class="content-section">
+    <h4>Are you new here?</h4>
+    <p>You can create an account to access the blog. Click the button below to create an account.</p>
+    <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-sm"
+      >Create Account</a>
+  </div>
+</div>
+{% endblock %}
